@@ -29,6 +29,48 @@ terraform -chdir=infra/stacks/storage validate
 
 init / validate 不创建资源；plan 需要云端前置条件。本轮没有执行 apply。
 
+## 操作清单：第一个可审阅的云变更
+
+先完成 lab 01，确认 sandbox、预算、ADC 和 Storage API。下列命令从仓库根目录执行；
+Terraform 可使用系统安装，或给当前 shell 加上本地校验工具路径：
+
+```bash
+export PATH="$PWD/.tools:$PATH"
+source .env
+gcloud projects describe "$GCP_PROJECT_ID" --format='value(projectId)'
+gcloud services list --enabled --project="$GCP_PROJECT_ID" \
+  --filter='config.name=storage.googleapis.com' --format='value(config.name)'
+```
+
+如果缺 API，先明确具体项目和变更范围再启用。创建新的忽略文件
+`infra/stacks/storage/local.tfvars`，以示例为参考，填写 `project_id`、`region` 和
+`environment`。确保名字与现有 bucket 不冲突；不要复用已有 state 或 bucket。
+
+```bash
+terraform -chdir=infra/stacks/storage init -input=false -lockfile=readonly
+terraform -chdir=infra/stacks/storage validate
+terraform -chdir=infra/stacks/storage plan -var-file=local.tfvars -out=storage.tfplan
+terraform -chdir=infra/stacks/storage show -no-color storage.tfplan
+```
+
+预期是新增一个私有版本化 bucket，零修改、零删除。检查目标项目、区域、标签、
+public access prevention 和 force_destroy 后，再授权 apply 当前保存的 plan。
+plan 和 state 均保留在忽略文件中，不上传完整输出。apply 属于实际创建资源，
+在本次初始化中没有执行。
+
+如果已完成授权 apply，使用 Terraform 输出而不是手填生产 bucket 名：
+
+```bash
+BUCKET="$(terraform -chdir=infra/stacks/storage output -raw bucket_name)"
+gcloud storage buckets describe "gs://$BUCKET"
+gcloud storage cp --no-clobber samples/events.ndjson "gs://$BUCKET/labs/02/events.ndjson"
+gcloud storage objects describe "gs://$BUCKET/labs/02/events.ndjson"
+gcloud storage cat "gs://$BUCKET/labs/02/events.ndjson"
+```
+
+校验对象代次与 3 条合成记录，确认没有公开授权。再次尝试对象写入前选择新的
+测试对象，只有版本实验才有意生成同名新版本。记录对象、版本保留、计费和去向。
+
 ## 失败与恢复练习
 
 使用未授权身份读取对象应失败；上传新对象版本后验证旧版本仍可定位，不删除原件。

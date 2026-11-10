@@ -17,6 +17,37 @@ lab 00。
 3. 设置预算提醒，列出未来各服务可能持续计费的资源。
 4. 定义应用运行身份和部署身份的职责，禁止把 Owner 当作通用运行角色。
 
+## 操作清单：选项目、核验身份、设置预算
+
+预计 30–60 分钟。先安装 [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk)，
+在控制台建立或选择一个**专用实验项目**。如果没有合适的结算账号或创建权限，
+记录阻塞并停在本地；不要借用公司或现有生产项目。项目 ID 与显示名称不同。
+
+在仓库根目录创建本地 `.env`（Git 已忽略），按 `.env.example` 填写专用项目和区域。
+不要把真实身份、账单账号、导出的凭据放进该文件的示例版本或 evidence。
+
+```bash
+source .env
+gcloud auth login
+gcloud auth list --filter=status:ACTIVE --format='value(account)'
+gcloud projects describe "$GCP_PROJECT_ID" --format='value(projectId,lifecycleState)'
+gcloud billing projects describe "$GCP_PROJECT_ID" --format='value(billingEnabled)'
+gcloud services list --enabled --project="$GCP_PROJECT_ID" --format='value(config.name)'
+```
+
+确认返回的是专用项目、状态 ACTIVE、结算状态符合预期。将项目作为 Cloud Billing
+预算过滤条件，填写自己的金额和接收人，设实际/预测阈值。确认提醒的接收与配置，
+无需为了触发提醒制造费用。预算提醒不是硬上限。
+
+为 lab 02 的 Terraform 建立本机 ADC，和 CLI 登录分开：
+
+```bash
+gcloud auth application-default login
+```
+
+身份小表建议按「操作者 / 部署身份 / 运行身份 / 资源 / 所需操作」记录。此阶段
+不生成服务账号密钥，也不需要给 CI 云权限。原始账号和项目标识只留在本机。
+
 ## 失败与恢复练习
 
 使用无权限测试身份读取一个私有资源，保存拒绝信息；不要撤销自己的唯一管理入口。

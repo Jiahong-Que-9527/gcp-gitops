@@ -31,7 +31,8 @@ The local Docker engine was unavailable. Windows Docker Desktop's Linux-engine
 pipe was absent and Ubuntu's Docker integration was inactive. No Docker settings
 were changed. A credential-free GitHub CI job will build the image and exercise
 real container HTTP health, valid batch and invalid batch responses; its result
-will be recorded separately.
+was verified in the [initial CI run](https://github.com/Jiahong-Que-9527/gcp-gitops/actions/runs/42912796572): local, terraform,
+kubernetes-render, and container jobs succeeded on `9c708a4`.
 
 No gcloud installation/login, GCP project discovery, billing changes, IAM grants,
 Terraform real-cloud plan/apply, cloud request, or cluster/controller installation
