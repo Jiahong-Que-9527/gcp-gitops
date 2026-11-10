@@ -1,0 +1,397 @@
+{
+  "authorship": "[房玄龄·2026-11-10]",
+  "labs": [
+    {
+      "id": "00",
+      "title": "本地服务、数据契约与 Git 工作流",
+      "phase": "A 本地与基础",
+      "path": "labs/00-local-baseline/README.md",
+      "prerequisites": [],
+      "status": "local-validated",
+      "evidence": [
+        "evidence/2026-11-10-local-baseline.md"
+      ]
+    },
+    {
+      "id": "01",
+      "title": "项目、IAM、结算与预算",
+      "phase": "A 本地与基础",
+      "path": "labs/01-sandbox-identity/README.md",
+      "prerequisites": [
+        "00"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "02",
+      "title": "Cloud Storage 与第一个 Terraform root",
+      "phase": "A 本地与基础",
+      "path": "labs/02-storage-terraform/README.md",
+      "prerequisites": [
+        "01"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "03",
+      "title": "远程 state、锁与恢复演练",
+      "phase": "A 本地与基础",
+      "path": "labs/03-state-and-recovery/README.md",
+      "prerequisites": [
+        "02"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "04",
+      "title": "VPC、子网、路由与防火墙",
+      "phase": "B 计算与交付",
+      "path": "labs/04-vpc-network/README.md",
+      "prerequisites": [
+        "03"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "05",
+      "title": "Compute Engine、磁盘与实例恢复",
+      "phase": "B 计算与交付",
+      "path": "labs/05-compute-vm/README.md",
+      "prerequisites": [
+        "04"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "06",
+      "title": "容器与 Artifact Registry",
+      "phase": "B 计算与交付",
+      "path": "labs/06-container-registry/README.md",
+      "prerequisites": [
+        "01",
+        "00"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "07",
+      "title": "Cloud Run 私有服务与版本回退",
+      "phase": "B 计算与交付",
+      "path": "labs/07-cloud-run/README.md",
+      "prerequisites": [
+        "06",
+        "03"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "08",
+      "title": "GitHub OIDC 与 Workload Identity Federation",
+      "phase": "B 计算与交付",
+      "path": "labs/08-keyless-ci/README.md",
+      "prerequisites": [
+        "07"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "09",
+      "title": "CI/CD、供应链与环境晋级",
+      "phase": "B 计算与交付",
+      "path": "labs/09-delivery-promotion/README.md",
+      "prerequisites": [
+        "08"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "10",
+      "title": "Logging、Monitoring、SLO 与追踪",
+      "phase": "C 服务运维",
+      "path": "labs/10-observability/README.md",
+      "prerequisites": [
+        "07"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "11",
+      "title": "Secret Manager、KMS 与凭据轮换",
+      "phase": "C 服务运维",
+      "path": "labs/11-secrets-kms/README.md",
+      "prerequisites": [
+        "08"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "12",
+      "title": "Cloud SQL、私有连接与备份恢复",
+      "phase": "C 服务运维",
+      "path": "labs/12-cloud-sql/README.md",
+      "prerequisites": [
+        "04",
+        "11"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "13",
+      "title": "Pub/Sub、重复、重试与死信",
+      "phase": "D 数据平台",
+      "path": "labs/13-pubsub-events/README.md",
+      "prerequisites": [
+        "07",
+        "10"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "14",
+      "title": "Eventarc、Workflows、Scheduler 与 Tasks",
+      "phase": "D 数据平台",
+      "path": "labs/14-event-orchestration/README.md",
+      "prerequisites": [
+        "13"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "15",
+      "title": "BigQuery、分区聚簇与查询成本",
+      "phase": "D 数据平台",
+      "path": "labs/15-bigquery/README.md",
+      "prerequisites": [
+        "02",
+        "13"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "16",
+      "title": "Dataform、数据质量与血缘",
+      "phase": "D 数据平台",
+      "path": "labs/16-dataform/README.md",
+      "prerequisites": [
+        "15"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "17",
+      "title": "Beam/Dataflow、窗口与流处理",
+      "phase": "D 数据平台",
+      "path": "labs/17-dataflow-beam/README.md",
+      "prerequisites": [
+        "13",
+        "15"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "18",
+      "title": "批处理编排与 Composer 取舍",
+      "phase": "D 数据平台",
+      "path": "labs/18-composer-batch/README.md",
+      "prerequisites": [
+        "16"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "19",
+      "title": "GKE、集群身份与工作负载",
+      "phase": "E Kubernetes 与 GitOps",
+      "path": "labs/19-gke-basics/README.md",
+      "prerequisites": [
+        "04",
+        "06",
+        "10"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "20",
+      "title": "Kustomize、Helm 与配置晋级",
+      "phase": "E Kubernetes 与 GitOps",
+      "path": "labs/20-kustomize-helm/README.md",
+      "prerequisites": [
+        "19"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "21",
+      "title": "Argo CD、漂移、协调与回退",
+      "phase": "E Kubernetes 与 GitOps",
+      "path": "labs/21-argocd-gitops/README.md",
+      "prerequisites": [
+        "20",
+        "09"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "22",
+      "title": "Gateway、DNS、TLS 与 NetworkPolicy",
+      "phase": "E Kubernetes 与 GitOps",
+      "path": "labs/22-gateway-networking/README.md",
+      "prerequisites": [
+        "21"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "23",
+      "title": "GKE Workload Identity 与策略",
+      "phase": "E Kubernetes 与 GitOps",
+      "path": "labs/23-gke-identity-policy/README.md",
+      "prerequisites": [
+        "21",
+        "11"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "24",
+      "title": "备份、灾难恢复与故障演练",
+      "phase": "F 可靠性与治理",
+      "path": "labs/24-reliability-recovery/README.md",
+      "prerequisites": [
+        "12",
+        "21"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "25",
+      "title": "负载、容量与 FinOps",
+      "phase": "F 可靠性与治理",
+      "path": "labs/25-cost-performance/README.md",
+      "prerequisites": [
+        "10",
+        "15",
+        "19"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "26",
+      "title": "Vertex AI、模型调用与评估",
+      "phase": "G AI 平台",
+      "path": "labs/26-vertex-ai/README.md",
+      "prerequisites": [
+        "08",
+        "10",
+        "15"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "27",
+      "title": "检索增强、权限与质量评估",
+      "phase": "G AI 平台",
+      "path": "labs/27-rag-evaluation/README.md",
+      "prerequisites": [
+        "26"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "28",
+      "title": "目录、质量、血缘与访问治理",
+      "phase": "F 可靠性与治理",
+      "path": "labs/28-data-governance/README.md",
+      "prerequisites": [
+        "16"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "29",
+      "title": "审计、威胁模型与供应链检查",
+      "phase": "F 可靠性与治理",
+      "path": "labs/29-security-audit/README.md",
+      "prerequisites": [
+        "08",
+        "23",
+        "28"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "30",
+      "title": "综合成果一：可运维的 Serverless 服务",
+      "phase": "H 可展示成果",
+      "path": "labs/30-capstone-serverless/README.md",
+      "prerequisites": [
+        "09",
+        "10",
+        "11",
+        "25"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "31",
+      "title": "综合成果二：可重放的事件数据平台",
+      "phase": "H 可展示成果",
+      "path": "labs/31-capstone-data/README.md",
+      "prerequisites": [
+        "14",
+        "16",
+        "17",
+        "24",
+        "28"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "32",
+      "title": "综合成果三：GitOps 平台与受评估 AI 工作负载",
+      "phase": "H 可展示成果",
+      "path": "labs/32-capstone-gitops-ai/README.md",
+      "prerequisites": [
+        "21",
+        "22",
+        "23",
+        "24",
+        "27",
+        "29"
+      ],
+      "status": "planned",
+      "evidence": []
+    }
+  ]
+}

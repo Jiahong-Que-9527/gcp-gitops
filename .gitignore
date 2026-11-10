@@ -1,0 +1,26 @@
+# [房玄龄·2026-11-10]
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+.terraformrc
+credentials.tfrc.json
+application_default_credentials.json
+gha-creds-*.json
+*service-account*.json
+*.pem
+*.key
+.kube/
+.tools/
+artifacts/
+.DS_Store

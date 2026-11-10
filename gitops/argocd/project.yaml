@@ -1,0 +1,14 @@
+# [房玄龄·2026-11-10] Bootstrap explicitly; no cluster resources are permitted.
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gcp-gitops-lab
+  namespace: argocd
+spec:
+  sourceRepos: [https://github.com/Jiahong-Que-9527/gcp-gitops.git]
+  destinations:
+    - namespace: lab-dev
+      server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - {group: apps, kind: Deployment}
+    - {group: '', kind: Service}

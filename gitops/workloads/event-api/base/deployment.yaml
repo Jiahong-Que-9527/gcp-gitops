@@ -1,0 +1,38 @@
+# [房玄龄·2026-11-10] Replace the placeholder with a real immutable digest first.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: event-api}
+  template:
+    metadata:
+      labels: {app: event-api}
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: event-api
+          image: REPLACE_WITH_BUILT_IMAGE_DIGEST
+          ports: [{containerPort: 8080}]
+          env:
+            - {name: APP_VERSION, value: replace-with-git-sha}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: 500m, memory: 256Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          readinessProbe:
+            httpGet: {path: /healthz, port: 8080}
+            initialDelaySeconds: 2
+          livenessProbe:
+            httpGet: {path: /healthz, port: 8080}
+            initialDelaySeconds: 5

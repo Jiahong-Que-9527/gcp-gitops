@@ -1,0 +1,27 @@
+# [房玄龄·2026-11-10]
+name: Lab execution
+description: Plan and record one bounded learning experiment
+title: '[Lab XX] '
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab ID and goal
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Positive test, negative test, recovery and expected evidence
+    validations:
+      required: true
+  - type: textarea
+    id: cost
+    attributes:
+      label: Target sandbox, identity, budget, duration and retained resources
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Actual result and evidence links

@@ -1,0 +1,4 @@
+# [房玄龄·2026-11-10] Example only; edit a new ignored local .tfvars file.
+project_id = "replace-with-sandbox-project"
+region = "europe-west3"
+environment = "dev"

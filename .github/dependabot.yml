@@ -1,0 +1,23 @@
+# [房玄龄·2026-11-10]
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: terraform
+    directory: /infra/stacks/storage
+    schedule:
+      interval: monthly
+  - package-ecosystem: terraform
+    directory: /infra/stacks/network
+    schedule:
+      interval: monthly
+  - package-ecosystem: terraform
+    directory: /infra/stacks/analytics
+    schedule:
+      interval: monthly
+  - package-ecosystem: terraform
+    directory: /infra/stacks/cloud-run
+    schedule:
+      interval: monthly

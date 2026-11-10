@@ -1,0 +1,15 @@
+# [房玄龄·2026-11-10] No automated sync, prune or resource deletion finalizer.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: event-api-dev
+  namespace: argocd
+spec:
+  project: gcp-gitops-lab
+  source:
+    repoURL: https://github.com/Jiahong-Que-9527/gcp-gitops.git
+    targetRevision: main
+    path: gitops/workloads/event-api/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: lab-dev
