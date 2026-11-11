@@ -16,7 +16,22 @@ application; 33 sequenced lab guides. Cloud resources have not been deployed
 or validated by this initial setup. Later guides are implementation briefs,
 not completed integrations. [Validation record](docs/validation.md).
 
-## Start here
+## Start here · Guided FX data pipeline course
+
+<!-- [房玄龄·2026-11-11] Guided FX course entry. -->
+
+[从一份 CSV 开始学数据管道](course/README.md) is the guided learning path.
+Start with [Lesson 1](course/01-read-csv.md), then follow the lessons on Python
+tests and SQL. The first three lessons use synthetic data and Python's standard
+library. Each lesson includes runnable steps, expected output and an exercise.
+
+```bash
+python3 -m course.fx_csv course/fixtures/rates.csv
+# accepted=2, rejected=1
+# line 4: fx_rate must be a decimal number
+```
+
+## Aviation event API quickstart
 
 ```bash
 git clone https://github.com/Jiahong-Que-9527/gcp-gitops.git
@@ -59,6 +74,7 @@ truth. The sample aviation records are deliberately synthetic engineering data.
 
 ## Repository map
 
+- `course/`: guided FX lessons, local fixtures and SQL exercises.
 - `labs/`: individual guides with prerequisites, tasks, failure drills, and acceptance evidence.
 - `apps/event-api/`: dependency-free reference service and container build context.
 - `infra/stacks/`: independent Terraform roots for Storage, VPC, BigQuery, and Cloud Run.
