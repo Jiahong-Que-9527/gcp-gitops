@@ -39,7 +39,7 @@ def visit(ident):
 for ident in labs:
     visit(ident)
 docs = [ROOT / 'README.md', ROOT / 'AGENTS.md']
-for folder in ('docs','labs','evidence','infra','gitops','apps'):
+for folder in ('docs','labs','evidence','infra','gitops','apps','course'):
     docs.extend((ROOT / folder).rglob('*.md'))
 for path in docs:
     for link in re.findall(r'(?<!!)\[[^\]]*\]\(([^)]+)\)', path.read_text(encoding='utf-8')):
