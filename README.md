@@ -24,6 +24,7 @@ not completed integrations. [Validation record](docs/validation.md).
 Start with [Lesson 1](course/01-read-csv.md), then follow the lessons on Python
 tests and SQL. The first three lessons use synthetic data and Python's standard
 library. Each lesson includes runnable steps, expected output and an exercise.
+[Lesson 4.1](course/04-01-fetch-ecb-usd.md) connects the same exercises to live ECB data.
 
 ```bash
 python3 -m course.fx_csv course/fixtures/rates.csv

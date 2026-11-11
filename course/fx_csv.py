@@ -57,7 +57,7 @@ def read_rates(path: Path) -> tuple[list[FxRate], list[tuple[int, str]]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Check a synthetic FX CSV file.")
+    parser = argparse.ArgumentParser(description="Check an FX CSV file in the course format.")
     parser.add_argument("csv_path", type=Path)
     args = parser.parse_args()
     try:

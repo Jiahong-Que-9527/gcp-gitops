@@ -85,4 +85,4 @@ ORDER BY currency, observation_date;
 
 </details>
 
-[课程目录与后续安排](README.md)
+[下一课 · 从 ECB API 下载几天 USD 汇率](04-01-fetch-ecb-usd.md) · [课程目录](README.md)

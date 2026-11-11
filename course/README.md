@@ -23,13 +23,15 @@ cd gcp-gitops
 3. [用 SQL 查询、分组和去重](03-query-sql.md)。
    在 Python 自带的 SQLite 中观察重复行对查询的影响。
 
+4. [从 ECB API 下载几天 USD 汇率](04-01-fetch-ecb-usd.md)。
+   把真实数据保存为课程 CSV，复用前三课的校验、测试和 SQL。
+
 先运行给定命令，对照预期输出。做独立练习时先写下你的预测，
 再打开提示或参考答案。每课的结果都可以在终端直接核对。
 
 ## 后续课程安排
 
-4. **Python 数据提取与增量 SQL**。用固定日期区间调用 ECB 的公开接口，
-   学习超时、重试、快照、业务键冲突和有界回填。
+4. **第 4 课后续小节**。在 API 提取基础上学习重试、原始快照、业务键冲突和有界回填。
 5. **第一次使用 GCP**。选择沙盒，核对项目、区域、身份和预算，
    然后从 Cloud Storage 加载数据到 BigQuery。
    [现有沙盒指南](../labs/01-sandbox-identity/README.md) ·
@@ -41,5 +43,5 @@ cd gcp-gitops
 8. **Pub/Sub、Beam 与 Dataflow**。验证重复、乱序、迟到和对账，
    先做本地实验，再做云端扩展。
 
-第 4 课起是后续开发计划。更广的 GCP、Kubernetes 和 AI 实验见
+第 4.1 课已可练习。第 4 课其余小节及后续课在开发计划中。更广的 GCP、Kubernetes 和 AI 实验见
 [现有实验索引](../docs/roadmap.zh-CN.md)。
